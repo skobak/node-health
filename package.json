@@ -1,0 +1,16 @@
+{
+    "name": "health-checker",
+    "version": "1.0.0",
+    "description": "return vital health inforamtion of a linux server (nodejs)",
+    "main": "health.js",
+    "scripts": {
+        "start": "node health.js"
+    },
+    "keywords": [
+        "node",
+        "healthcheck",
+        "monitoring"
+    ],
+    "author": "Aleksandr Skobeltcyn",
+    "license": "MIT"
+}

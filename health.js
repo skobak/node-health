@@ -1,6 +1,10 @@
-// Authour Aleksandr Skobeltcyn
-// This is simple module that return health information from nodejs
-// No dependencies 
+/**
+ * Author Aleksandr Skobeltcyn
+ * 
+ * Return vital health information: CPU, Space, Process 
+ * Zero dependencies 
+ * 
+ *  */
 
 const { exec } = require('child_process')
 const os = require('os')

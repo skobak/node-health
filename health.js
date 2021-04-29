@@ -1,17 +1,17 @@
 /**
  * Author Aleksandr Skobeltcyn
- * 
- * Return vital health information: CPU, Space, Process 
- * Zero dependencies 
- * 
+ *
+ * Return vital health information: CPU, Space, Process
+ * Zero dependencies
+ *
  *  */
 
 const { exec } = require('child_process')
 const os = require('os')
 
-async function health() {
+const health = async(name) => {
     return {
-        name: "node",
+        name,
         status: 'ok',
         timestamp: Date.now(),
         process: {
@@ -21,6 +21,7 @@ async function health() {
         memory: {
             size: os.totalmem(),
             avail: os.freemem(),
+            avarage: os.loadavg(),
             usePercentage: getUsagePercent(os.totalmem(), os.freemem),
         },
         space: await getSpace(),
@@ -43,7 +44,12 @@ const getSpace = async() => {
                             avail,
                             usePercentage,
                         ] = parseStringWithColumns(line)
-                        resolve({ size, used, avail, usePercentage: parseInt(usePercentage.slice(0, -1)) })
+                        resolve({
+                            size,
+                            used,
+                            avail,
+                            usePercentage: parseInt(usePercentage.slice(0, -1)),
+                        })
                     }
                 })
             })

@@ -27,8 +27,14 @@ Not in npm, just one file health.js
 const { health } = require('./health')
 
 void async function main() {
-    console.log(await health())
+    console.log(await health('server name'))
 }()
+```
+
+or in Express
+
+```
+router.get('/health', async(_, res) => { res.json(await health(process.env.SERVER)) })
 ```
 
 
